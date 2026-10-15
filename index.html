@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>骨質疏鬆預防 — 香港女性按年齡階段的行動指南</title>
+
+<!-- Fonts: Signal's three Latin roles (Source Serif 4 / DM Sans / IBM Plex Mono)
+     each wired to an explicit Traditional-Chinese companion from Google Fonts. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================
+   THEME TOKENS — Signal (bold template pack)
+   Authored at 1920x1080 stage size. px only,
+   never vw/vh: the stage is scaled as a whole.
+   =========================================== */
+:root {
+    /* Surfaces */
+    --navy: #1C2644;
+    --navy-alt: #232F55;
+    --cream: #F0ECE3;
+    --cream-alt: #E6E0D4;
+
+    /* Text */
+    --text-warm: #E2DCD0;
+    --text-muted-dark: #8A96A8;
+    --text-hint-dark: #4E5A6E;
+    --ink: #1A2030;
+    --text-muted-light: #5A6270;
+    --text-hint-light: #9AA0A8;
+
+    /* The single accent */
+    --gold: #C8A870;
+
+    /* Hairlines */
+    --border-dark: rgba(200, 168, 112, 0.20);
+    --border-dark-faint: rgba(200, 168, 112, 0.14);
+    --border-light: #CAC4B4;
+    --grid-line: rgba(240, 236, 227, 0.035);
+
+    /* Stage surfaces consumed by viewport-base.css */
+    --stage-bg: #141B33;
+    --slide-bg: var(--navy);
+
+    /* Typography roles: Latin face + explicit CJK companion */
+    --font-display: 'Source Serif 4', 'Noto Serif TC', Georgia, serif;
+    --font-body: 'DM Sans', 'Noto Sans TC', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Noto Sans TC', monospace;
+
+    /* Motion */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===========================================
+   viewport-base.css — VERBATIM, DO NOT EDIT
+   =========================================== */
+/* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   Include this ENTIRE file in every presentation.
+   Slides are authored at 1920×1080 and scaled as a whole.
+   =========================================== */
+
+/* 1. Lock the browser viewport */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 2. Full-window deck viewport */
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 3. Fixed 16:9 design canvas.
+   JavaScript sets transform: translate(...) scale(...). */
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+
+/* 4. Slides stack inside the fixed stage.
+   Content must be laid out at 1920×1080, not reflowed per device. */
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+/* 5. Keep media inside authored slide bounds */
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 6. Presentation chrome stays outside the slide design system */
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* 7. Print one fixed-size slide per page */
+@media print {
+    html,
+    body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+    }
+
+    .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+
+    .deck-controls {
+        display: none !important;
+    }
+}
+
+/* 8. Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* ===========================================
+   BASE RESET
+   =========================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===========================================
+   SIGNAL SURFACES — dual-surface system.
+   Navy carries the cover, chapters and statements;
+   cream resets the eye inside longer dark runs.
+   =========================================== */
+.slide {
+    background: var(--navy);
+    color: var(--text-warm);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+.slide.light {
+    background: var(--cream);
+    color: var(--ink);
+}
+
+/* Near-invisible 80px grid texture — dark surfaces only */
+.grid-texture {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+}
+
+/* Hairline page frame */
+.frame {
+    position: absolute;
+    inset: 56px;
+    border: 1px solid var(--border-dark-faint);
+    pointer-events: none;
+}
+
+.slide.light .frame { border-color: rgba(26, 32, 48, 0.10); }
+
+/* --- Chrome rails --- */
+.rail {
+    position: absolute;
+    left: 104px;
+    width: 1712px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rail-top { top: 104px; height: 48px; }
+.rail-bottom { top: 964px; height: 44px; }
+
+.kicker {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--text-muted-dark);
+}
+
+.slide.light .kicker { color: var(--text-muted-light); }
+
+.kicker .k-gold { color: var(--gold); }
+
+.mark { width: 12px; height: 12px; background: var(--gold); }
+
+.pager {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+}
+
+.rule-motif { display: flex; align-items: center; gap: 10px; }
+.rule-motif .seg-gold { width: 28px; height: 3px; background: var(--gold); }
+.rule-motif .seg-hair { width: 128px; height: 1px; background: var(--border-dark); }
+.slide.light .rule-motif .seg-hair { background: var(--border-light); }
+
+/* --- Hairline rules spanning the content column --- */
+.rule {
+    position: absolute;
+    left: 104px;
+    width: 1712px;
+    height: 1px;
+    background: var(--border-dark);
+    transform-origin: left center;
+}
+
+.slide.light .rule { background: var(--border-light); }
+
+.rule-head { top: 192px; }
+.rule-foot { top: 928px; }
+
+/* ===========================================
+   CONTENT COLUMN
+   Authored region: x 104 → 1816, y 240 → 900
+   =========================================== */
+.body {
+    position: absolute;
+    left: 104px;
+    top: 240px;
+    width: 1712px;
+    height: 660px;
+}
+
+.headline {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 1.28;
+    color: inherit;
+}
+
+.headline .em { color: var(--gold); }
+
+.dense-h {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 1.35;
+}
+
+.lead {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.8;
+    color: var(--text-warm);
+}
+
+.slide.light .lead { color: var(--text-muted-light); }
+
+.lead .em { font-family: var(--font-display); color: var(--gold); }
+
+.p {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 1.85;
+    color: var(--text-warm);
+}
+
+.slide.light .p { color: var(--text-muted-light); }
+
+.p .em, .p .b { color: var(--gold); }
+
+.caption {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--text-hint-dark);
+}
+
+.slide.light .caption { color: var(--text-hint-light); }
+
+.mono-label {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+}
+
+.tag {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0.12em;
+}
+
+/* Download link on the closing slide — same outlined tag, but interactive */
+a.tag-link {
+    text-decoration: none;
+    margin-top: 12px;
+}
+a.tag-link:hover,
+a.tag-link:focus-visible {
+    background: var(--gold);
+    color: var(--ink);
+    outline: none;
+}
+
+/* Short gold rule — kicker separator / chapter punctuation */
+.gold-rule { width: 132px; height: 4px; background: var(--gold); }
+.gold-rule-short { width: 36px; height: 3px; background: var(--gold); }
+
+/* --- Statistical tiles --- */
+.stat-row { display: flex; gap: 44px; }
+.stat {
+    flex: 1;
+    border-top: 1px solid var(--border-dark);
+    padding: 26px 0 0;
+}
+.slide.light .stat { border-top-color: var(--border-light); }
+
+.stat-value {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 104px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--gold);
+}
+
+.stat-value .unit { font-size: 44px; letter-spacing: 0; }
+
+.stat-label {
+    margin-top: 16px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 1.6;
+    color: inherit;
+}
+
+.stat-note {
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-hint-dark);
+}
+.slide.light .stat-note { color: var(--text-hint-light); }
+
+/* --- Two-column compare with a hairline divider --- */
+.cols2 {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    column-gap: 48px;
+    align-items: start;
+}
+.vrule { width: 1px; align-self: stretch; background: var(--border-dark); }
+.slide.light .vrule { background: var(--border-light); }
+
+.col-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.3;
+}
+
+/* --- Em-dash bullet list (Signal's only bullet style) --- */
+.list { list-style: none; }
+.list li {
+    position: relative;
+    padding-left: 46px;
+    margin-top: 20px;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 1.8;
+    color: inherit;
+}
+.slide.light .list li { color: var(--text-muted-light); }
+.list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 25px;
+    color: var(--gold);
+}
+.list li .em { color: var(--gold); }
+
+/* --- Timeline: hairline spine with gold nodes --- */
+.timeline { position: relative; padding-left: 64px; }
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 12px;
+    bottom: 12px;
+    width: 1px;
+    background: var(--border-dark);
+}
+.slide.light .timeline::before { background: var(--border-light); }
+
+.tl-item { position: relative; margin-bottom: 18px; }
+.tl-item::before {
+    content: "";
+    position: absolute;
+    left: -63px;
+    top: 14px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+}
+.tl-date {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+}
+.tl-text {
+    margin-top: 6px;
+    font-family: var(--font-body);
+    font-size: 22px;
+    line-height: 1.7;
+}
+.slide.light .tl-text { color: var(--text-muted-light); }
+
+/* --- Three-stage columns (roadmap / stage index) --- */
+.stage-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--border-dark);
+}
+.slide.light .stage-cols { border-top-color: var(--border-light); }
+
+.stage-col {
+    border-right: 1px solid var(--border-dark);
+    padding: 32px 40px 0 0;
+}
+.stage-col:last-child { border-right: 0; }
+.stage-col + .stage-col { padding-left: 40px; }
+.slide.light .stage-col { border-right-color: var(--border-light); }
+
+.stage-num {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+}
+.stage-age {
+    margin-top: 14px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 1;
+    color: inherit;
+}
+.stage-title {
+    margin-top: 16px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.3;
+}
+
+/* --- Key/value rows (calcium sources, resources) --- */
+.kv { border-top: 1px solid var(--border-dark); }
+.slide.light .kv { border-top-color: var(--border-light); }
+.kv-row {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 40px;
+    border-bottom: 1px solid var(--border-dark);
+    padding: 12px 0;
+}
+/* Inside a half-width column the key rail narrows so the value keeps a
+   readable measure instead of wrapping into a narrow ribbon. */
+.cols2 .kv-row { grid-template-columns: 210px 1fr; gap: 24px; }
+.slide.light .kv-row { border-bottom-color: var(--border-light); }
+.kv-key {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 1.5;
+}
+.kv-val {
+    font-family: var(--font-body);
+    font-size: 23px;
+    line-height: 1.62;
+}
+.slide.light .kv-val { color: var(--text-muted-light); }
+.kv-val .em { color: var(--gold); font-family: var(--font-mono); font-size: 23px; }
+
+/* --- Footnote strip pinned to the bottom of the content column --- */
+.foot-note {
+    position: absolute;
+    left: 104px;
+    bottom: 176px;
+    width: 1712px;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--text-hint-dark);
+}
+.slide.light .foot-note { color: var(--text-hint-light); }
+
+/* ===========================================
+   COVER — chromeless, sparsest layout
+   =========================================== */
+.cover-index {
+    position: absolute;
+    left: 1336px;
+    top: 300px;
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+.index-cell {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    padding-left: 48px;
+    border: 1px solid var(--border-dark);
+    background: var(--navy-alt);
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    color: var(--gold);
+}
+.cover-title {
+    position: absolute;
+    left: 104px;
+    top: 380px;
+    width: 1096px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 176px;
+    line-height: 1.05;
+    color: var(--cream);
+}
+.cover-title .em { color: var(--gold); font-weight: 700; }
+.cover-rule { position: absolute; left: 104px; top: 300px; width: 132px; height: 4px; background: var(--gold); transform-origin: left center; }
+.cover-rule-mid { position: absolute; left: 104px; top: 688px; width: 1096px; height: 1px; background: var(--border-dark); transform-origin: left center; }
+.cover-sub {
+    position: absolute;
+    left: 104px;
+    top: 730px;
+    width: 980px;
+    font-family: var(--font-body);
+    font-size: 38px;
+    line-height: 1.7;
+    color: var(--text-warm);
+}
+.gutter-rule {
+    position: absolute;
+    left: 1280px;
+    top: 300px;
+    width: 1px;
+    height: 596px;
+    background: var(--border-dark-faint);
+}
+
+/* ===========================================
+   CHAPTER OPENER — chromeless statement slide
+   =========================================== */
+.chapter-band {
+    position: absolute;
+    left: 104px;
+    top: 268px;
+    width: 300px;
+    padding: 26px 0 26px 32px;
+    border-left: 3px solid var(--gold);
+    background: color-mix(in srgb, var(--gold) 12%, var(--navy));
+    font-family: var(--font-mono);
+    font-size: 22px;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+}
+.chapter-title {
+    position: absolute;
+    left: 104px;
+    top: 396px;
+    width: 1490px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 96px;
+    line-height: 1.22;
+    color: var(--cream);
+}
+.chapter-title .em { color: var(--gold); }
+.chapter-lead {
+    position: absolute;
+    left: 104px;
+    top: 700px;
+    width: 1180px;
+    font-family: var(--font-body);
+    font-size: 30px;
+    line-height: 1.8;
+    color: var(--text-muted-dark);
+}
+
+/* ===========================================
+   ENTRANCE — one staggered page-load reveal
+   =========================================== */
+@keyframes signal-rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes signal-draw {
+    from { opacity: 0; transform: scaleX(0); }
+    to   { opacity: 1; transform: scaleX(1); }
+}
+
+.reveal { opacity: 0; }
+
+.slide.visible .reveal {
+    animation: signal-rise 0.9s var(--ease-out-expo) both;
+    animation-delay: var(--d, 0s);
+}
+.slide.visible .reveal.draw {
+    animation: signal-draw 1s var(--ease-out-expo) both;
+    animation-delay: var(--d, 0s);
+}
+
+/* ===========================================
+   PRESENTATION CHROME (outside the stage)
+   =========================================== */
+.deck-controls {
+    bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 14px;
+    background: rgba(20, 27, 51, 0.86);
+    border: 1px solid rgba(200, 168, 112, 0.35);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+}
+.deck-controls button {
+    background: none;
+    border: 0;
+    color: var(--gold);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    cursor: pointer;
+    padding: 2px 6px;
+}
+.deck-controls button:hover { color: var(--cream); }
+.progress-track { width: 120px; height: 2px; background: rgba(226, 220, 208, 0.25); }
+.progress-fill { height: 2px; width: 0; background: var(--gold); transition: width 0.4s var(--ease-out-expo); }
+
+/* ===========================================
+   INLINE EDITING — post-draft affordance
+   Visibility is driven by JS classes only.
+   =========================================== */
+.edit-hotzone {
+    position: fixed; top: 0; left: 0;
+    width: 80px; height: 80px;
+    z-index: 10000;
+    cursor: pointer;
+}
+.edit-toggle {
+    position: fixed; top: 18px; left: 18px;
+    width: 42px; height: 42px;
+    border: 1px solid rgba(200, 168, 112, 0.5);
+    background: rgba(20, 27, 51, 0.9);
+    color: var(--gold);
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10001;
+}
+.edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
+
+.slide [contenteditable="true"] { outline: 1px dashed rgba(200, 168, 112, 0.7); outline-offset: 6px; }
+
+.edit-banner {
+    position: fixed;
+    top: 18px;
+    left: 74px;
+    padding: 8px 14px;
+    background: rgba(20, 27, 51, 0.92);
+    border: 1px solid rgba(200, 168, 112, 0.5);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    display: none;
+    z-index: 10001;
+}
+.edit-banner.show { display: block; }
+
+/* ===========================================
+   REDUCED MOTION — resolve everything instantly
+   =========================================== */
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .slide.visible .reveal {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+    <main class="deck-stage" id="deckStage">
+
+        <!-- ============================================================
+             SLIDE 01 / 16 — COVER
+             ============================================================ -->
+        <section class="slide dark active visible" aria-labelledby="deckTitle">
+            <div class="grid-texture" aria-hidden="true"></div>
+            <div class="frame" aria-hidden="true"></div>
+
+            <header class="rail rail-top">
+                <span class="kicker">社區健康教育講座</span>
+                <span class="mark" aria-hidden="true"></span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.25s" aria-hidden="true"></div>
+
+            <div class="cover-rule reveal draw" style="--d:0.35s" aria-hidden="true"></div>
+            <h1 class="cover-title reveal" id="deckTitle" style="--d:0.45s">骨質疏鬆<span class="em">預防</span></h1>
+            <div class="cover-rule-mid reveal draw" style="--d:0.62s" aria-hidden="true"></div>
+            <p class="cover-sub reveal" style="--d:0.72s">香港女性按年齡階段的行動指南</p>
+
+            <div class="gutter-rule reveal draw" style="--d:0.5s" aria-hidden="true"></div>
+            <aside class="cover-index" aria-label="年齡階段">
+                <div class="index-cell reveal" style="--d:0.6s">20–35</div>
+                <div class="index-cell reveal" style="--d:0.7s">35–50</div>
+                <div class="index-cell reveal" style="--d:0.8s">50+</div>
+            </aside>
+
+            <div class="rule rule-foot reveal draw" style="--d:1.05s" aria-hidden="true"></div>
+            <footer class="rail rail-bottom">
+                <span class="rule-motif" aria-hidden="true"><span class="seg-gold"></span><span class="seg-hair"></span></span>
+                <span class="pager">01 / 16</span>
+            </footer>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 02 / 16 — WHAT IT IS (light, dense read)
+             ============================================================ -->
+        <section class="slide light" aria-labelledby="s02">
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">01 <span class="k-gold">／</span> 認識骨質疏鬆</span>
+                <span class="pager">02 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s02" style="--d:0.38s; margin-top:34px">一個<span class="em">無聲</span>嘅病</h2>
+                <p class="lead reveal" style="--d:0.5s; margin-top:22px; max-width:1340px">骨質疏鬆會令骨質密度下降、骨頭嘅微結構變差，骨頭變脆。佢冇痛、冇徵狀 —— 好多人第一次知道自己有，就係骨折嗰日。</p>
+
+                <div class="stat-row reveal" style="--d:0.62s; margin-top:52px">
+                    <div class="stat">
+                        <div class="stat-value">1<span class="unit">／3</span></div>
+                        <div class="stat-label">50 歲以上女性，一生中會發生一次骨質疏鬆性骨折</div>
+                        <div class="stat-note">男性為 1 ／ 5</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">1<span class="unit">／4</span></div>
+                        <div class="stat-label">香港 65 歲或以上女性患有骨質疏鬆</div>
+                        <div class="stat-note">女性患病率明顯高於男性</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">7,000</div>
+                        <div class="stat-label">香港每年髖骨骨折宗數</div>
+                        <div class="stat-note">最常見：髖部、脊椎、手腕</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.75s">資料來源：香港骨質疏鬆學會（風險因素、骨質疏鬆的後果，引 Lo SS 2021）</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.85s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 03 / 16 — LIFE OF BONE (dark, timeline)
+             ============================================================ -->
+        <section class="slide dark" aria-labelledby="s03">
+            <div class="grid-texture" aria-hidden="true"></div>
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">01 <span class="k-gold">／</span> 認識骨質疏鬆</span>
+                <span class="pager">03 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s03" style="--d:0.38s; margin-top:34px">骨頭嘅一生：由<span class="em">高峰骨量</span>到快速流失</h2>
+
+                <div class="cols2 reveal" style="--d:0.55s; margin-top:30px">
+                    <div>
+                        <div class="timeline">
+                            <div class="tl-item">
+                                <div class="tl-date">18 歲</div>
+                                <div class="tl-text">女性約九成骨質已經形成 —— 兒童及青少年期係累積「骨本」嘅黃金期。</div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-date">30 多歲</div>
+                                <div class="tl-text">骨質達到頂峰，青壯年期維持最高水平。呢個就係你嘅「高峰骨量」。</div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-date">約 40 歲</div>
+                                <div class="tl-text">流失開始變得明顯；更年期雌激素下降會加劇流失速度。</div>
+                            </div>
+                            <div class="tl-item" style="margin-bottom:0">
+                                <div class="tl-date">停經後最初 10 年</div>
+                                <div class="tl-text">雌激素大幅減少，部分女性流失多達 <span style="color:var(--gold)">25%</span> 骨質。</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vrule" aria-hidden="true"></div>
+                    <div>
+                        <div class="mono-label">點解咁重要</div>
+                        <p class="p" style="margin-top:22px">骨質係一個「戶口」：<span class="em">35 歲之前</span>你可以存入本金，之後淨係可以減慢支出。</p>
+                        <p class="p" style="margin-top:18px">高峰骨量愈高，老年時嘅「本錢」愈多，就算流失速度一樣，都更遲跌入骨質疏鬆嘅範圍。</p>
+                        <p class="p" style="margin-top:18px">所以預防唔係 60 歲先開始 —— <span class="em">係 20 歲開始</span>。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.75s">資料來源：衞生署家庭健康服務；美國 Office on Women's Health（HHS）</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.85s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 04 / 16 — HONG KONG NUMBERS (light, stats)
+             ============================================================ -->
+        <section class="slide light" aria-labelledby="s04">
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">01 <span class="k-gold">／</span> 認識骨質疏鬆</span>
+                <span class="pager">04 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s04" style="--d:0.38s; margin-top:34px">骨折嘅<span class="em">代價</span>：唔止係痛</h2>
+
+                <div class="stat-row reveal" style="--d:0.55s; margin-top:46px">
+                    <div class="stat">
+                        <div class="stat-value">17.3<span class="unit">%</span></div>
+                        <div class="stat-label">髖骨骨折後一年內死亡率</div>
+                        <div class="stat-note">同齡人士背景死亡率 1.6%</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">70<span class="unit">%</span></div>
+                        <div class="stat-label">髖骨骨折患者活動能力不同程度受損</div>
+                        <div class="stat-note">約 23% 需入住安老院</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">33<span class="unit">萬+</span></div>
+                        <div class="stat-label">2005–2018 年香港因跌倒而住院嘅人次</div>
+                        <div class="stat-note">約三成涉及 60 歲以上人士</div>
+                    </div>
+                </div>
+
+                <div class="cols2 reveal" style="--d:0.68s; margin-top:52px">
+                    <div>
+                        <div class="mono-label">再骨折風險</div>
+                        <p class="p" style="margin-top:18px">曾經發生脆性骨折嘅人，再骨折風險可增加達 <span class="em">10 倍</span>，以首次骨折後首兩年最高。</p>
+                    </div>
+                    <div class="vrule" aria-hidden="true"></div>
+                    <div>
+                        <div class="mono-label">數字為何有出入</div>
+                        <p class="p" style="margin-top:18px">2019 年立法會書面答覆引述報道指每年約 <span class="em">1 萬</span>宗髖關節骨折新症。學會及資料庫統計約 7,000 宗 —— 統計口徑不同，結論一致：<span class="em">數量龐大，而且可以預防</span>。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.8s">資料來源：香港骨質疏鬆學會（引 Lo SS 2021、Leung KS 2017）；立法會十題：骨質疏鬆症（2019-11-20）</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.9s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 05 / 16 — RISK FACTORS (dark, compare)
+             ============================================================ -->
+        <section class="slide dark" aria-labelledby="s05">
+            <div class="grid-texture" aria-hidden="true"></div>
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">01 <span class="k-gold">／</span> 認識骨質疏鬆</span>
+                <span class="pager">05 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s05" style="--d:0.38s; margin-top:34px">風險因素：改唔到嘅，同<span class="em">改得到</span>嘅</h2>
+
+                <div class="cols2 reveal" style="--d:0.55s; margin-top:46px">
+                    <div>
+                        <div class="col-title">改唔到</div>
+                        <ul class="list" style="margin-top:14px">
+                            <li>女性、年齡增長</li>
+                            <li>家族史（父母曾有髖骨骨折）</li>
+                            <li>體重過輕、身形瘦小</li>
+                            <li>過早停經（45 歲前）、曾切除卵巢</li>
+                            <li>曾經發生脆性骨折</li>
+                        </ul>
+                    </div>
+                    <div class="vrule" aria-hidden="true"></div>
+                    <div>
+                        <div class="col-title">改得到（今日就可以開始）</div>
+                        <ul class="list" style="margin-top:14px">
+                            <li>鈣質攝取不足</li>
+                            <li>維生素 D 不足、少接觸陽光</li>
+                            <li>缺乏負重運動、長期久坐</li>
+                            <li>吸煙、酗酒</li>
+                            <li>長期使用類固醇等藥物 —— 要同醫生檢視，<span class="em">唔好自己停藥</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.75s">資料來源：香港骨質疏鬆學會（風險因素）；衞生署家庭健康服務</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.85s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 06 / 16 — THREE-STAGE ROADMAP (light)
+             ============================================================ -->
+        <section class="slide light" aria-labelledby="s06">
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">02 <span class="k-gold">／</span> 行動路線圖</span>
+                <span class="pager">06 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s06" style="--d:0.38s; margin-top:34px">三個階段，三件唔同嘅事</h2>
+                <p class="lead reveal" style="--d:0.5s; margin-top:20px; max-width:1400px">每個階段嘅目標唔同：年輕時係「存錢」，中年係「止蝕」，年長係「知道自己嘅數字 + 防跌」。</p>
+
+                <div class="stage-cols reveal" style="--d:0.62s; margin-top:48px">
+                    <div class="stage-col">
+                        <div class="stage-num">階段 01</div>
+                        <div class="stage-age">20–35</div>
+                        <div class="stage-title">打好基礎</div>
+                        <ul class="list" style="margin-top:12px">
+                            <li>儲到最高嘅高峰骨量</li>
+                            <li>每日鈣 800–1000 毫克</li>
+                            <li>負重運動、戒煙</li>
+                        </ul>
+                    </div>
+                    <div class="stage-col">
+                        <div class="stage-num">階段 02</div>
+                        <div class="stage-age">35–50</div>
+                        <div class="stage-title">守住骨本</div>
+                        <ul class="list" style="margin-top:12px">
+                            <li>減慢流失速度</li>
+                            <li>補足鈣與維生素 D</li>
+                            <li>每週 150–300 分鐘運動</li>
+                        </ul>
+                    </div>
+                    <div class="stage-col">
+                        <div class="stage-num">階段 03</div>
+                        <div class="stage-age">50+</div>
+                        <div class="stage-title">篩查與防跌</div>
+                        <ul class="list" style="margin-top:12px">
+                            <li>做風險評估／DEXA</li>
+                            <li>練平衡與肌力</li>
+                            <li>執好家居防跌</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.78s">資料來源：衞生署家庭健康服務、長者健康服務；香港骨質疏鬆學會；美國 USPSTF</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.88s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 07 / 16 — STAGE 01 CHAPTER (dark, chromeless)
+             ============================================================ -->
+        <section class="slide dark" aria-labelledby="s07">
+            <div class="grid-texture" aria-hidden="true"></div>
+            <div class="frame" aria-hidden="true"></div>
+            <div class="chapter-band reveal" style="--d:0.2s">階段 01 ／ 20–35</div>
+            <div class="gold-rule-short reveal draw" style="--d:0.32s; position:absolute; left:104px; top:372px" aria-hidden="true"></div>
+            <h2 class="chapter-title reveal" id="s07" style="--d:0.4s">今日嘅骨頭，<br>決定 <span class="em">60 歲</span>嘅你</h2>
+            <p class="chapter-lead reveal" style="--d:0.6s">呢個階段嘅每一分努力，都係存入去一個之後只可以提款嘅戶口。</p>
+            <div class="rule rule-foot reveal draw" style="--d:0.8s" aria-hidden="true"></div>
+            <footer class="rail rail-bottom">
+                <span class="rule-motif" aria-hidden="true"><span class="seg-gold"></span><span class="seg-hair"></span></span>
+                <span class="pager">07 / 16</span>
+            </footer>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 08 / 16 — STAGE 01 CALCIUM (light, kv table)
+             ============================================================ -->
+        <section class="slide light" aria-labelledby="s08">
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">階段 01 <span class="k-gold">／</span> 20–35 打好基礎</span>
+                <span class="pager">08 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s08" style="--d:0.38s; margin-top:34px">鈣：<span class="em">800–1000 毫克</span>，喺香港食得到</h2>
+
+                <div class="cols2 reveal" style="--d:0.55s; margin-top:28px">
+                    <div>
+                        <div class="kv">
+                            <div class="kv-row">
+                                <div class="kv-key">每日目標</div>
+                                <div class="kv-val">成人 800–1000 毫克；50 歲或以上 800–1300 毫克<span class="em">（食物 + 補充劑總和不應超過 2000 毫克）</span></div>
+                            </div>
+                            <div class="kv-row">
+                                <div class="kv-key">奶類及代替品</div>
+                                <div class="kv-val">每日 1–2 份：1 杯牛奶／1 盒加鈣豆奶／1 盒乳酪／2 片芝士（每份約 300 毫克鈣）</div>
+                            </div>
+                            <div class="kv-row" style="border-bottom:0">
+                                <div class="kv-key">高鈣食物</div>
+                                <div class="kv-val">板豆腐（石膏凝固，成分見 <span class="em">E516 / E509 / E578</span>）· 菜心、芥蘭 · 丁香魚乾、蝦米、罐裝連骨沙甸魚 · 芝麻、果仁</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vrule" aria-hidden="true"></div>
+                    <div>
+                        <div class="mono-label">要拆解嘅誤解</div>
+                        <p class="p" style="margin-top:20px"><span class="em">骨湯唔補鈣。</span>豬骨、魚骨嘅鈣唔會溶入湯水，骨湯含鈣量極低。</p>
+                        <p class="p" style="margin-top:16px"><span class="em">薑醋都唔係鈣來源。</span>鈣含量低，而且高脂高糖，唔宜多吃。</p>
+                        <p class="p" style="margin-top:16px">唔飲牛奶？用<span class="em">低糖加鈣豆奶</span>代替一樣得。</p>
+                        <p class="p" style="margin-top:16px">唔夠鈣未必即刻有感覺 —— 身體會由骨骼「借鈣」出嚟用。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.78s">資料來源：衞生署家庭健康服務 — 攝取足夠鈣質、婦女與骨質疏鬆症（建議綜合世衞及中國營養學會）</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.88s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 09 / 16 — STAGE 02 (dark)
+             ============================================================ -->
+        <section class="slide dark" aria-labelledby="s09">
+            <div class="grid-texture" aria-hidden="true"></div>
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">階段 02 <span class="k-gold">／</span> 35–50 守住骨本</span>
+                <span class="pager">09 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s09" style="--d:0.38s; margin-top:34px">呢個階段係<span class="em">止蝕</span>，唔係等停經先開始</h2>
+
+                <div class="cols2 reveal" style="--d:0.55s; margin-top:44px">
+                    <div>
+                        <div class="mono-label">身體發生緊咩事</div>
+                        <ul class="list" style="margin-top:14px">
+                            <li>約 <span class="em">40 歲</span>開始，骨質流失變得明顯</li>
+                            <li>更年期雌激素下降，會<span class="em">加劇</span>流失速度</li>
+                            <li>雌激素同時影響骨代謝 —— 唔止係「心情同潮熱」咁簡單</li>
+                            <li>流失去得比正常快，就會提早跌入骨質疏鬆範圍</li>
+                        </ul>
+                    </div>
+                    <div class="vrule" aria-hidden="true"></div>
+                    <div>
+                        <div class="mono-label">呢十年要守住嘅四件事</div>
+                        <ul class="list" style="margin-top:14px">
+                            <li>每星期 <span class="em">150–300 分鐘</span>中等強度運動</li>
+                            <li>每日約 <span class="em">10 分鐘</span>陽光，補足維生素 D</li>
+                            <li>維持每日鈣攝取，唔好靠「飲湯」</li>
+                            <li>戒煙、控制飲酒、維持健康體重</li>
+                            <li>45 歲前停經或月經紊亂 → 同醫生講</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.78s">資料來源：衞生署家庭健康服務 — 婦女與骨質疏鬆症；康樂及文化事務署 — 婦女健體指南</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.88s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 10 / 16 — VITAMIN D (light)
+             ============================================================ -->
+        <section class="slide light" aria-labelledby="s10">
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">階段 02 <span class="k-gold">／</span> 35–50 守住骨本</span>
+                <span class="pager">10 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s10" style="--d:0.38s; margin-top:34px">維生素 D：最容易被<span class="em">忽略</span>嗰一環</h2>
+
+                <div class="cols2 reveal" style="--d:0.55s; margin-top:42px">
+                    <div>
+                        <div class="kv">
+                            <div class="kv-row">
+                                <div class="kv-key">做咩用</div>
+                                <div class="kv-val">幫腸道吸收鈣、確保骨骼正常礦化，並維持肌肉力量 —— 直接關係到跌倒風險</div>
+                            </div>
+                            <div class="kv-row">
+                                <div class="kv-key">陽光</div>
+                                <div class="kv-val">每日讓臉同手臂接觸溫和陽光約 <span class="em">10 分鐘</span>；膚色較深需要更長時間；避開夏天中午猛烈太陽</div>
+                            </div>
+                            <div class="kv-row" style="border-bottom:0">
+                                <div class="kv-key">劑量參考</div>
+                                <div class="kv-val">國際骨質疏鬆基金會建議 60 歲或以上，每日補充 <span class="em">800–1000 IU</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vrule" aria-hidden="true"></div>
+                    <div>
+                        <div class="mono-label">點解香港人特別容易唔夠</div>
+                        <p class="p" style="margin-top:20px">食物嘅維生素 D 含量有限，<span class="em">單靠飲食難以滿足</span>身體所需 —— 主要來源始終係皮膚經紫外線合成。</p>
+                        <p class="p" style="margin-top:16px">長時間室內工作、出門必搽防曬、怕曬黑，都會令合成量大減。</p>
+                        <p class="p" style="margin-top:16px">防曬係要做，但唔等於要完全避開陽光；重點係<span class="em">短時間、溫和</span>嘅接觸。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.78s">資料來源：衞生署家庭健康服務 — 婦女與骨質疏鬆症；國際骨質疏鬆基金會（IOF）— Vitamin D</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.88s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 11 / 16 — STAGE 03 CHAPTER (dark, chromeless)
+             ============================================================ -->
+        <section class="slide dark" aria-labelledby="s11">
+            <div class="grid-texture" aria-hidden="true"></div>
+            <div class="frame" aria-hidden="true"></div>
+            <div class="chapter-band reveal" style="--d:0.2s">階段 03 ／ 50+</div>
+            <div class="gold-rule-short reveal draw" style="--d:0.32s; position:absolute; left:104px; top:372px" aria-hidden="true"></div>
+            <h2 class="chapter-title reveal" id="s11" style="--d:0.4s">停經後最初十年<br>流失得<span class="em">最快</span></h2>
+            <p class="chapter-lead reveal" style="--d:0.6s">部分女性停經後最初 10 年流失多達 25% 骨質。呢十年，就係決定你會唔會骨折嘅十年。</p>
+            <div class="rule rule-foot reveal draw" style="--d:0.8s" aria-hidden="true"></div>
+            <footer class="rail rail-bottom">
+                <span class="rule-motif" aria-hidden="true"><span class="seg-gold"></span><span class="seg-hair"></span></span>
+                <span class="pager">11 / 16</span>
+            </footer>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 12 / 16 — SCREENING (light)
+             ============================================================ -->
+        <section class="slide light" aria-labelledby="s12">
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">階段 03 <span class="k-gold">／</span> 50+ 篩查與防跌</span>
+                <span class="pager">12 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s12" style="--d:0.38s; margin-top:34px">篩查：<span class="em">DEXA</span> 同 T-score，香港實況係點</h2>
+
+                <div class="cols2 reveal" style="--d:0.55s; margin-top:30px">
+                    <div>
+                        <div class="kv">
+                            <div class="kv-row">
+                                <div class="kv-key">標準檢查</div>
+                                <div class="kv-val">DEXA（雙能量 X 光吸收測量）：一般測腰椎或股關節，程序快捷、輻射量低，用嚟診斷同監察治療效果</div>
+                            </div>
+                            <div class="kv-row">
+                                <div class="kv-key">唔可以確診</div>
+                                <div class="kv-val">超聲波只可以作骨質密度嘅<span class="em">初步篩驗</span></div>
+                            </div>
+                            <div class="kv-row">
+                                <div class="kv-key">邊個要做</div>
+                                <div class="kv-val"><span class="em">65 歲或以上所有女性</span>；65 歲以下停經女性若有一項或以上風險因素，先用評估工具（FRAX®／COSA）計風險</div>
+                            </div>
+                            <div class="kv-row" style="border-bottom:0">
+                                <div class="kv-key">香港指引</div>
+                                <div class="kv-val">香港骨質疏鬆學會 2024 年更新指引：以 <span class="em">FRAX® + DEXA</span> 作風險為本篩查</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vrule" aria-hidden="true"></div>
+                    <div>
+                        <div class="mono-label">香港實況</div>
+                        <p class="p" style="margin-top:18px">政府認為未有足夠科學實證支持全民普查，所以<span class="em">冇提供全港骨質密度篩查服務</span>。</p>
+                        <p class="p" style="margin-top:14px">公立醫院 DEXA 輪候時間可達 <span class="em">1–2 年</span>；私營一般一星期內完成，檢查費用約 125–130 美元。</p>
+                        <p class="p" style="margin-top:14px">結論：<span class="em">唔會被邀請去做檢查</span> —— 有風險因素就要主動同醫生提出。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.78s">資料來源：衞生署長者健康服務；美國 USPSTF（2025）；香港骨質疏鬆學會 2024 指引；立法會書面答覆（2019、2022）；IOF 香港報告（2025）</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.88s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 13 / 16 — EXERCISE PRESCRIPTION (dark)
+             ============================================================ -->
+        <section class="slide dark" aria-labelledby="s13">
+            <div class="grid-texture" aria-hidden="true"></div>
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">階段 03 <span class="k-gold">／</span> 50+ 篩查與防跌</span>
+                <span class="pager">13 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s13" style="--d:0.38s; margin-top:34px">運動處方：負重、阻力、<span class="em">平衡</span></h2>
+
+                <div class="stage-cols reveal" style="--d:0.55s; margin-top:44px">
+                    <div class="stage-col">
+                        <div class="stage-num">負重運動</div>
+                        <div class="stage-age" style="font-size:40px; margin-top:12px">每週 3 次</div>
+                        <ul class="list" style="margin-top:12px">
+                            <li>步行、太極、健身操</li>
+                            <li>每次 30–60 分鐘</li>
+                            <li>負重刺激有助維持骨質、減慢流失</li>
+                        </ul>
+                    </div>
+                    <div class="stage-col">
+                        <div class="stage-num">阻力與平衡</div>
+                        <div class="stage-age" style="font-size:40px; margin-top:12px">每週 2–3 次</div>
+                        <ul class="list" style="margin-top:12px">
+                            <li>肌力、步態、平衡及功能訓練</li>
+                            <li>持續約 12 個月效果最明顯</li>
+                            <li>太極係世衞列出嘅防跌介入</li>
+                        </ul>
+                    </div>
+                    <div class="stage-col">
+                        <div class="stage-num">總運動量</div>
+                        <div class="stage-age" style="font-size:40px; margin-top:12px">150–300 分鐘</div>
+                        <ul class="list" style="margin-top:12px">
+                            <li>每週中等強度帶氧運動</li>
+                            <li>強化肌肉、改善平衡</li>
+                            <li>已確診骨質疏鬆：開始前先問醫生或物理治療師</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.78s">資料來源：衞生署長者健康服務 — 骨質疏鬆症；美國 USPSTF（2024）；康文署 — 婦女健體指南；世界衞生組織 — Falls</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.88s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 14 / 16 — FALLS PREVENTION AT HOME (light)
+             ============================================================ -->
+        <section class="slide light" aria-labelledby="s14">
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">階段 03 <span class="k-gold">／</span> 50+ 篩查與防跌</span>
+                <span class="pager">14 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s14" style="--d:0.38s; margin-top:34px">防跌 = <span class="em">防骨折</span>：今日就可以改嘅八件事</h2>
+
+                <div class="cols2 reveal" style="--d:0.55s; margin-top:42px">
+                    <div>
+                        <ul class="list" style="margin-top:0">
+                            <li>浴室、廁所裝扶手，加防滑墊</li>
+                            <li>清走鬆地毯、地上嘅電線</li>
+                            <li>夜燈、床邊燈；燈掣放喺順手位</li>
+                            <li>定期驗眼，眼鏡度數要準</li>
+                        </ul>
+                    </div>
+                    <div class="vrule" aria-hidden="true"></div>
+                    <div>
+                        <ul class="list" style="margin-top:0">
+                            <li>鞋要防滑貼腳，唔好著拖鞋周圍走</li>
+                            <li>同醫生檢視會影響平衡嘅藥物</li>
+                            <li>行樓梯扶實扶手；唔好企凳拎高處物件</li>
+                            <li>需要時用拐杖或助行架 —— 唔係「認老」，係防跌</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.78s">資料來源：世界衞生組織 — Falls；美國 USPSTF（2024）；香港骨質疏鬆學會</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.88s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 15 / 16 — WARNING SIGNS & MYTHS (dark)
+             ============================================================ -->
+        <section class="slide dark" aria-labelledby="s15">
+            <div class="grid-texture" aria-hidden="true"></div>
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">04 <span class="k-gold">／</span> 求醫與誤解</span>
+                <span class="pager">15 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s15" style="--d:0.38s; margin-top:34px">幾時要睇醫生，同埋<span class="em">唔好信</span>嘅事</h2>
+
+                <div class="cols2 reveal" style="--d:0.55s; margin-top:42px">
+                    <div>
+                        <div class="col-title">盡快求醫嘅警號</div>
+                        <ul class="list" style="margin-top:14px">
+                            <li>身高比 40 歲時減少 <span class="em">3 厘米</span>或以上</li>
+                            <li>駝背、突發嚴重背痛</li>
+                            <li>輕輕一跌就骨折（脆性骨折）</li>
+                            <li>提早停經、長期使用類固醇等藥物</li>
+                        </ul>
+                    </div>
+                    <div class="vrule" aria-hidden="true"></div>
+                    <div>
+                        <div class="col-title">三個常見誤解</div>
+                        <ul class="list" style="margin-top:14px">
+                            <li>「飲多啲骨湯、食薑醋就補到鈣」── <span class="em">鈣唔會溶入湯水</span></li>
+                            <li>「補鈣就等於治療」── 確診後需要醫生評估，藥物治療係另一回事</li>
+                            <li>「冇痛就冇事」── 骨質疏鬆冇徵狀，痛嘅時候通常已經骨折</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.78s">資料來源：香港骨質疏鬆學會（風險因素、了解骨質疏鬆）；衞生署家庭健康服務</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.88s" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             SLIDE 16 / 16 — ACTION LIST & RESOURCES (light)
+             ============================================================ -->
+        <section class="slide light" aria-labelledby="s16">
+            <div class="frame" aria-hidden="true"></div>
+            <header class="rail rail-top">
+                <span class="kicker">05 <span class="k-gold">／</span> 今日起可以做嘅事</span>
+                <span class="pager">16 / 16</span>
+            </header>
+            <div class="rule rule-head reveal draw" style="--d:0.2s" aria-hidden="true"></div>
+
+            <div class="body">
+                <div class="gold-rule reveal draw" style="--d:0.3s" aria-hidden="true"></div>
+                <h2 class="headline reveal" id="s16" style="--d:0.38s; margin-top:26px">三個階段，各做<span class="em">三件事</span></h2>
+
+                <div class="cols2 reveal" style="--d:0.55s; margin-top:26px">
+                    <div>
+                        <div class="kv">
+                            <div class="kv-row">
+                                <div class="kv-key">20–35</div>
+                                <div class="kv-val">每日鈣 800–1000 毫克 · 每星期負重運動 · 唔吸煙</div>
+                            </div>
+                            <div class="kv-row">
+                                <div class="kv-key">35–50</div>
+                                <div class="kv-val">每週 150–300 分鐘運動 · 每日約 10 分鐘陽光 · 維持鈣與維生素 D</div>
+                            </div>
+                            <div class="kv-row" style="border-bottom:0">
+                                <div class="kv-key">50+</div>
+                                <div class="kv-val">同醫生討論風險評估／DEXA · 練太極或平衡訓練 · 執好家居防跌</div>
+                            </div>
+                        </div>
+
+                        <div class="mono-label" style="margin-top:18px">求助資源</div>
+                        <p class="caption" style="margin-top:10px; font-size:21px; line-height:1.75">衞生署家庭健康服務 24 小時資訊熱線 <span style="color:var(--gold)">2112 9900</span>　·　中大賽馬會骨質疏鬆預防及治療中心 <span style="color:var(--gold)">2252 8833</span><br>亦可透過長者健康中心、地區康健中心及長者醫療券（每年 2,000 元）獲取服務</p>
+                        <a class="tag tag-link" href="handout.pdf" target="_blank" rel="noopener">下載 PDF 講義 ↓</a>
+                    </div>
+                    <div class="vrule" aria-hidden="true"></div>
+                    <div>
+                        <div class="mono-label">記住一句</div>
+                        <p class="p" style="margin-top:18px; font-size:28px; line-height:1.9">骨質疏鬆<span class="em">冇痛、冇徵狀</span>，但骨折之後果可以好嚴重 —— 一年內死亡率 17.3%。</p>
+                        <p class="p" style="margin-top:16px; font-size:28px; line-height:1.9">你今日食嘅一餐、行嘅一段路、曬嘅十分鐘太陽，都係喺度改變你 60 歲之後嘅骨頭。</p>
+                        <p class="caption" style="margin-top:26px">本簡報只作健康教育用途，唔可以代替醫生嘅診斷或治療。如有疑問，請諮詢醫生或物理治療師。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-note reveal" style="--d:0.78s">主要來源：衞生署家庭健康服務及長者健康服務 · 香港骨質疏鬆學會 · 世界衞生組織 · 美國 USPSTF · 國際骨質疏鬆基金會 · 康文署</div>
+            <div class="rule rule-foot reveal draw" style="--d:0.88s" aria-hidden="true"></div>
+        </section>
+
+    </main>
+</div>
+
+<!-- Presentation chrome lives outside the slide stage -->
+<nav class="deck-controls" aria-label="簡報導覽">
+    <button id="prevBtn" type="button" aria-label="上一頁">◀</button>
+    <span id="counter">01 / 16</span>
+    <span class="progress-track" aria-hidden="true"><span class="progress-fill" id="progressFill"></span></span>
+    <button id="nextBtn" type="button" aria-label="下一頁">▶</button>
+</nav>
+
+<div class="edit-hotzone" id="editHotzone"></div>
+<button class="edit-toggle" id="editToggle" type="button" title="編輯模式（E）">✏</button>
+<div class="edit-banner" id="editBanner">編輯模式：直接改字，Ctrl+S 儲存</div>
+
+<script>
+/* ===========================================
+   SLIDE PRESENTATION CONTROLLER
+   Fixed 16:9 stage, scaled as a whole.
+   =========================================== */
+class SlidePresentation {
+    constructor() {
+        this.slides = Array.from(document.querySelectorAll('.slide'));
+        this.stage = document.getElementById('deckStage');
+        this.counter = document.getElementById('counter');
+        this.fill = document.getElementById('progressFill');
+        this.current = 0;
+        this.setupStageScale();
+        this.setupKeyboardNav();
+        this.setupTouchNav();
+        this.setupWheelNav();
+        document.getElementById('prevBtn').addEventListener('click', () => this.go(-1));
+        document.getElementById('nextBtn').addEventListener('click', () => this.go(1));
+        this.show(0, { animate: false });
+    }
+
+    setupStageScale() {
+        const scale = () => {
+            const factor = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+            const x = (window.innerWidth - 1920 * factor) / 2;
+            const y = (window.innerHeight - 1080 * factor) / 2;
+            this.stage.style.transform = `translate(${x}px, ${y}px) scale(${factor})`;
+        };
+        scale();
+        window.addEventListener('resize', scale);
+    }
+
+    setupKeyboardNav() {
+        document.addEventListener('keydown', (e) => {
+            if (e.target.getAttribute && e.target.getAttribute('contenteditable') === 'true') return;
+            switch (e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                case 'PageDown':
+                case ' ':
+                    e.preventDefault(); this.go(1); break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                case 'PageUp':
+                    e.preventDefault(); this.go(-1); break;
+                case 'Home': e.preventDefault(); this.show(0); break;
+                case 'End': e.preventDefault(); this.show(this.slides.length - 1); break;
+            }
+        });
+    }
+
+    setupTouchNav() {
+        let x0 = null, y0 = null;
+        const el = document.getElementById('deckStage');
+        el.addEventListener('touchstart', (e) => {
+            x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+        }, { passive: true });
+        el.addEventListener('touchend', (e) => {
+            if (x0 === null) return;
+            const dx = e.changedTouches[0].clientX - x0;
+            const dy = e.changedTouches[0].clientY - y0;
+            if (Math.abs(dx) > 50 || Math.abs(dy) > 50) this.go(dx < 0 || dy < 0 ? 1 : -1);
+            x0 = null; y0 = null;
+        }, { passive: true });
+    }
+
+    setupWheelNav() {
+        let last = 0;
+        window.addEventListener('wheel', (e) => {
+            const now = Date.now();
+            if (now - last < 650) return;
+            if (Math.abs(e.deltaY) < 12 && Math.abs(e.deltaX) < 12) return;
+            last = now;
+            const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+            this.go(d > 0 ? 1 : -1);
+        }, { passive: true });
+    }
+
+    go(delta) { this.show(this.current + delta); }
+
+    show(index, opts = {}) {
+        this.current = Math.max(0, Math.min(index, this.slides.length - 1));
+        this.slides.forEach((slide, i) => {
+            const on = i === this.current;
+            slide.classList.toggle('active', on);
+            slide.classList.toggle('visible', on);
+        });
+        const pad = (n) => String(n).padStart(2, '0');
+        this.counter.textContent = `${pad(this.current + 1)} / ${pad(this.slides.length)}`;
+        this.fill.style.width = `${((this.current + 1) / this.slides.length) * 100}%`;
+        if (opts.animate !== false) this.restartReveals();
+        this.persist();
+    }
+
+    /* Replay the staggered entrance on every slide change */
+    restartReveals() {
+        const slide = this.slides[this.current];
+        slide.querySelectorAll('.reveal').forEach((el) => {
+            el.style.animation = 'none';
+            void el.offsetWidth;
+            el.style.animation = '';
+        });
+    }
+
+    /* Remember the reading position between visits */
+    persist() {
+        try { localStorage.setItem('frontend-slides:index', String(this.current)); } catch (e) {}
+    }
+}
+
+/* ===========================================
+   INLINE EDITING — hover top-left or press E.
+   Edits auto-save to localStorage; Ctrl+S writes
+   a standalone copy back out.
+   =========================================== */
+const editor = {
+    isActive: false,
+    nodes: null,
+    STORAGE_KEY: 'frontend-slides:edits:osteoporosis-zhhk',
+
+    /* Snapshot the editable nodes once. The list must be captured before
+       edit mode adds contenteditable, otherwise the save path sees an
+       empty set and silently persists nothing. */
+    targets() {
+        if (!this.nodes) {
+            this.nodes = Array.from(document.querySelectorAll('.slide'))
+                .flatMap((slide) => Array.from(slide.querySelectorAll('h1, h2, .chapter-title, .lead, .p, .stat-label, .stat-note, .tl-text, .kv-key, .kv-val, .list li, .col-title, .caption, .foot-note, .cover-sub, .index-cell, .chapter-lead')))
+                .filter((el) => !el.querySelector('h1, h2, p, li'));
+        }
+        return this.nodes;
+    },
+
+    toggleEditMode() {
+        this.isActive = !this.isActive;
+        const toggle = document.getElementById('editToggle');
+        const banner = document.getElementById('editBanner');
+        toggle.classList.toggle('active', this.isActive);
+        toggle.classList.toggle('show', this.isActive);
+        banner.classList.toggle('show', this.isActive);
+        this.targets().forEach((el) => {
+            if (this.isActive) {
+                el.setAttribute('contenteditable', 'true');
+                el.addEventListener('input', () => this.save());
+            } else {
+                el.removeAttribute('contenteditable');
+            }
+        });
+        if (this.isActive) this.save();
+    },
+
+    key(el) { return Array.from(document.querySelectorAll('.slide')).indexOf(el.closest('.slide')) + ':' + Array.from(this.targets()).indexOf(el); },
+
+    save() {
+        const data = {};
+        this.targets().forEach((el) => { data[this.key(el)] = el.innerHTML; });
+        try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+    },
+
+    restore() {
+        let data = null;
+        try { data = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || 'null'); } catch (e) { data = null; }
+        if (!data) return;
+        this.targets().forEach((el) => {
+            const v = data[this.key(el)];
+            if (typeof v === 'string') el.innerHTML = v;
+        });
+    },
+
+    exportFile() {
+        const clone = document.documentElement.cloneNode(true);
+        clone.querySelectorAll('[contenteditable]').forEach((el) => el.removeAttribute('contenteditable'));
+        const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = '骨質疏鬆預防-香港女性.html';
+        a.click();
+        URL.revokeObjectURL(a.href);
+    }
+};
+
+const presentation = new SlidePresentation();
+editor.restore();
+
+document.getElementById('editToggle').addEventListener('click', () => editor.toggleEditMode());
+
+const hotzone = document.getElementById('editHotzone');
+const editToggle = document.getElementById('editToggle');
+let hideTimeout = null;
+
+hotzone.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+    editToggle.classList.add('show');
+});
+hotzone.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(() => { if (!editor.isActive) editToggle.classList.remove('show'); }, 400);
+});
+editToggle.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+editToggle.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(() => { if (!editor.isActive) editToggle.classList.remove('show'); }, 400);
+});
+hotzone.addEventListener('click', () => editor.toggleEditMode());
+
+document.addEventListener('keydown', (e) => {
+    if ((e.key === 'e' || e.key === 'E') && !e.target.getAttribute('contenteditable')) editor.toggleEditMode();
+    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) { e.preventDefault(); editor.save(); editor.exportFile(); }
+});
+
+/* Restore the last reading position */
+try {
+    const saved = parseInt(localStorage.getItem('frontend-slides:index') || '0', 10);
+    if (!Number.isNaN(saved) && saved > 0) presentation.show(saved, { animate: false });
+} catch (e) {}
+</script>
+</body>
+</html>

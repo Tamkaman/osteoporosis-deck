@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="骨質疏鬆預防">
+  <!-- Signal mark: deep editorial navy, 80px-grid fingerprint, antique-gold square -->
+  <rect width="64" height="64" fill="#1C2644"/>
+  <g stroke="#C8A870" stroke-opacity="0.18" stroke-width="1">
+    <path d="M16 0V64M32 0V64M48 0V64M0 16H64M0 32H64M0 48H64"/>
+  </g>
+  <rect x="15.5" y="15.5" width="33" height="33" fill="none" stroke="#C8A870" stroke-width="3"/>
+  <rect x="26" y="26" width="12" height="12" fill="#C8A870"/>
+</svg>
